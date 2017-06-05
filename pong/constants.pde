@@ -1,34 +1,37 @@
-int displayWidth=1000, displayHeight=1000;
-int gameState = 0;
+// Display Size
+int displayWidth=500, displayHeight=500;
 
+// Velocity Cnstants
 float BALL_VELOCITY;
-float MAX_PADDLE_VELOCITY = 20;
-float VELOCITY_INCREMENT = 1;
+float PADDLE_VELOCITY = 10;
 
-color bgColor = color(21, 21, 21);
+// Background Color
+int bgColor = 0;
 
-float gravity = 0.5;
+// Ball parameters
 float ballX, ballY;
-float ballVx = 10, ballVy = 10;
-float ballRadius = 20;
-color ballColor = color(239,83,80);
+float ballVx, ballVy;
+float ballRadius = 10;
+int ballColor = 255;
 
+// Y - position of Left and Right paddles
 float leftPaddle=displayHeight/2, rightPaddle=displayHeight/2;
+// Paddle Dimensions
 float paddleLength = 180, paddleWidth = 20;
-color paddleColor = color(124,179,66);
-float paddleRadius = paddleWidth*2;
+int paddleColor = 255;
 
-float restitutionCoeff = 1.0;
-int leftScore = 0, rightScore = 0;
-int scoreSize = 150;
-color scoreColor = color(179,157,219);
-float scoreY = 200, scoreX = 300;
+// Score Variables
+int leftScore, rightScore;
 
-int startSize = 200;
-color startColor = color(124,179,66);
-
+// Controls for the Left Paddle
 char LEFT_UP = 'q', LEFT_DOWN = 'a';
+
+// Controls for the Right Paddle
 char RIGHT_UP = 'o', RIGHT_DOWN = 'l';
+
+// Game Controls
 char RESET = 'r', PAUSE = 'p', START = 's';
 
-boolean keys[] = new boolean [8];
+// Keyoard Handling Booleans
+boolean left_up, right_up, left_down, right_down;
+boolean reset, pause, start;
