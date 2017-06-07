@@ -42,8 +42,18 @@ FUNCTION: `void setup()` is provided to you, which calls `resetGame()` to start 
 
 FUNCTION: `void draw()`is given to you, but simply calls `drawGameScreen()` which you will be writing. Remember that `draw()` gets called many times per second, and this is how the game screen will be refreshed each time something changes.
  
+<i class="icon-folder-open"></i> **constants.pde**
+This file consists of all sorts of useful variables that you will use throughout your code. Never use arbitrary values in your code; create a variable for it in this file if it doesn't already exist and then use that variable in your code. For example:
+
+ - DO NOT write `size(500, 500)`
+ - Instead, write: `size(displayWidth, displayHeight);` and define the variables `displayWidth` and `displayHeight` in the constants file.
+
+Most constants in this file are self-explanatory based on the name of the variable and the comments throughout the file. If you still aren't sure what one of the variables is, ASK! Or look for where that variable is being used and make an educated guess. Here are some variables that may be confusing:
+
+ - BALL_VELOCITY: This is actually the magnitude of the max ball velocity in each direction. The ball velocity in the x-direction `ballVx` will always have the same magnitude but opposite signs. The ball velocity in the y-direction `ballVy` will range from `[-BALL_VELOCITY, BALL_VELOCITY]`.
+
 **Step 1: Create a ball and its properties**
- The ball will be represented as a circle with the radius specified in the constants file. The ball also has a `position` and `velocity` throughout the game. 
+ The ball will be represented as a circle with the radius specified in the constants file. The ball also has a `position` and `velocity` throughout the game. These constants have already been declared in the 
  
  - Write the function `drawBall()` to display the ball in the correct position. the ball and give it a velocity.
  - To draw the ball, you are given the ball radius and color ballRadius = 10 and ballColor = 255 among the defined constants.
@@ -78,7 +88,8 @@ Again now you want to write your code to detect collision of the ball with paddl
 
 **Step 8:**
 If collision happens, you must add to your code a formula to ensure proper reflection of the ball from paddle. 
-Remember as we mentioned in lecture, reflection will involve switching the sign of the velocity. This can be done by using ballVx *= -1
+Remember as we mentioned in lecture, reflection will involve switching the sign of the velocity. This can be done by using ballVx *= -1.
+Reflection involves a function paddleHit() that you have to write that takes inputs of ballPos and paddlePos and converts that to a value between -1 and 1.  This value will be set equal to hitPosition in your code.
 
 **Step 9:**
 Detect losing as hitting the left or right wall.
@@ -97,10 +108,7 @@ This function must:
  - Reset Ball and Paddle Positions
  - Reset Ball Velocity
 
-The Reset Button must take the player back to start screen.
-
-Hint: you might find it usefl to define a setRandomBallVelocity() fucntion and use it in your resetGame() function. 
-setRandomBallVelocity() must basically set positions for ball and paddle, in addition to ball velocity.
+The Reset key must take the player back to start screen.
 
 **Step 13:**
 Pause button

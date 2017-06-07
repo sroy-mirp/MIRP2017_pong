@@ -2,7 +2,7 @@
 int displayWidth=500, displayHeight=500;
 
 // Velocity Cnstants
-float BALL_VELOCITY;
+float BALL_VELOCITY = 20; //This is the MAX speed of the ball.
 float PADDLE_VELOCITY = 10;
 
 // Background Color
@@ -10,7 +10,7 @@ int bgColor = 0;
 
 // Ball parameters
 float ballX, ballY;
-float ballVx, ballVy;
+float ballVx, ballVy; // ballVx is always BALL_VELOCTY or -BALL_VELOCITY; ballVy varies.
 float ballRadius = 10;
 int ballColor = 255;
 
