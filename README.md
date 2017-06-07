@@ -53,11 +53,7 @@ Most constants in this file are self-explanatory based on the name of the variab
  - BALL_VELOCITY: This is the maximum speed of the ball in each direction. The ball velocity in the x-direction `ballVx` will always have the same magnitude, namely `BALL_VELOCITY,`but opposite signs. The ball velocity in the y-direction `ballVy` will range from `[-BALL_VELOCITY, BALL_VELOCITY]`.
 
 **Step 1: Create a ball and its properties**
- The ball will be represented as a circle with the radius specified in the constants file. The ball also has a `position` and `velocity` throughout the game. These variables have been declared in the `constants` file with the appropriate names, but you need to set their values in the appropriate places:
- 
-
- - Set ball position: 
-
+ The ball will be represented as a circle with the radius specified in the constants file. The ball also has a `position` and `velocity` throughout the game. These variables have been declared in the `constants` file with the appropriate names, but you need to set their values in the appropriate places.
  
  - Write the function `drawBall()` to display the ball in the correct position. the ball and give it a velocity.
  - To draw the ball, you are given the ball radius and color ballRadius = 10 and ballColor = 255 among the defined constants.
