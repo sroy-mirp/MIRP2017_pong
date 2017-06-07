@@ -50,68 +50,61 @@ This file consists of all sorts of useful variables that you will use throughout
 
 Most constants in this file are self-explanatory based on the name of the variable and the comments throughout the file. If you still aren't sure what one of the variables is, ASK! Or look for where that variable is being used and make an educated guess. Here are some variables that may be confusing:
 
- - BALL_VELOCITY: This is actually the magnitude of the max ball velocity in each direction. The ball velocity in the x-direction `ballVx` will always have the same magnitude but opposite signs. The ball velocity in the y-direction `ballVy` will range from `[-BALL_VELOCITY, BALL_VELOCITY]`.
+ - BALL_VELOCITY: This is the maximum speed of the ball in each direction. The ball velocity in the x-direction `ballVx` will always have the same magnitude, namely `BALL_VELOCITY,`but opposite signs. The ball velocity in the y-direction `ballVy` will range from `[-BALL_VELOCITY, BALL_VELOCITY]`.
 
 **Step 1: Create a ball and its properties**
- The ball will be represented as a circle with the radius specified in the constants file. The ball also has a `position` and `velocity` throughout the game. These constants have already been declared in the 
+ The ball will be represented as a circle with the radius specified in the constants file. The ball also has a `position` and `velocity` throughout the game. These variables have been declared in the `constants` file with the appropriate names, but you need to set their values in the appropriate places:
+ 
+
+ - Set ball position: 
+
  
  - Write the function `drawBall()` to display the ball in the correct position. the ball and give it a velocity.
  - To draw the ball, you are given the ball radius and color ballRadius = 10 and ballColor = 255 among the defined constants.
  - Give it a velocity BALL_VELOCITY among the constants. 
 
-**Step 2:**
+**Step 2: Ball-Wall Collision Detection**
 Now it's time to do collisions detection, so the ball bounces off the four walls (no gravity).
-In the void updateBallVelocity() function, write your code to detect ball collisions with walls or paddles:
+In the `updateBallVelocity()` function, write your code to detect ball collisions with walls or paddles:
   
  - If collide with paddle, or top/bottom wall, then bounce off
  - If collides with left wall, right player gains one point
  - If collides with right wall, left player gains one point
  
-**Step 3:**
+**Step 3: Draw the paddles**
 Now try to write your code for the drawPaddles() function to display Left and Right paddles in correct position.
-To do this you will use the Paddle parameters defined among the constants:  paddleLength = 180,  paddleWidth = 20 and paddleColor = 255.
+To do this you will use the Paddle parameters defined among the constants:  `paddleLength,  paddleWidth, paddleColor`
 
-**Step 4:**
+**Step 4: Move one paddle**
 This is the time to write your code to make one of the paddles move.
 
- - Write you code to make one of the paddles go up and down. To do this fill out the updatePaddlePositions() function.
- -  Based on the keys pressedd, move the paddles (update Y position)
+ - Write you code to make one of the paddles go up and down. To do this fill out the `updatePaddlePositions()` function.
+ -  Based on the keys pressedd, move the paddles (update paddle Y position)
 
-**Step 5:**
-Now try to modify your current code for the updatePaddlePositions() to restrict motion of paddles to make sure the paddles don't leave the screen.
-Here you will need the paddleLength parameter defined in the constants.
-**Step 6:**
-To make things actually exciting now, make both paddles move independently
+**Step 5: Restrict paddle movement**
+Now try to modify your current code for the `updatePaddlePositions()` to restrict motion of paddles to make sure the paddles don't leave the screen.
+Here you will need the `paddleLength` parameter defined in the constants.
 
-**Step 7:**
-Again now you want to write your code to detect collision of the ball with paddle. To do this you must write a code that detects a large difference between the x-postion of the ball and the paddles as a loss, and a small difference as a collision. 
+**Step 6: Move both paddles!**
+To make things actually exciting now, make both paddles move independently. Edit your code in `updatePaddlePositions()`.
 
-**Step 8:**
-If collision happens, you must add to your code a formula to ensure proper reflection of the ball from paddle. 
-Remember as we mentioned in lecture, reflection will involve switching the sign of the velocity. This can be done by using ballVx *= -1.
-Reflection involves a function paddleHit() that you have to write that takes inputs of ballPos and paddlePos and converts that to a value between -1 and 1.  This value will be set equal to hitPosition in your code.
+**Step 7: Ball-Paddle Collision Detection**
+Again now you want to write your code to detect collision of the ball with the paddle. To do this you must write code that detects a large difference between the postion of the ball and the paddle as a miss, and a small difference as a collision. 
 
-**Step 9:**
-Detect losing as hitting the left or right wall.
-To do this write your code in the rightLose() and leftLose() functions in the flow.pde
+Make sure your code takes appropriate action in each case (score a point vs ball is reflected). Remember as we mentioned in lecture, reflection will involve switching the sign of the ball's x velocity. 
 
-**Step 10:**
+**Step 8: Player scores a point**
+Detect losing as the ball hitting the left or right wall.
+To do this write your code in the `rightLose()` and `leftLose()` functions in `flow.pde`. Think about what happens when a player scores a point.
+
+**Step 9: Display scores**
 Write your code for the displayScores() function to display Left and Right player scores on the screen.
 
-**Step 11:**
-Have a start screen and/or end screen
+**Step 10: Create a start screen**
+Have a start screen that will be displayed when the program is first run. If the reset key is pressed, the game state must return to this start screen as well.
 
-**Step 12:**
-Now write the code for the resetGame() function.
-This function must:
-
- - Reset Ball and Paddle Positions
- - Reset Ball Velocity
-
-The Reset key must take the player back to start screen.
-
-**Step 13:**
-Pause button
+**Step 11: Pausing the game**
+If the game is paused, the ball and paddle properties should not be updated until the game is unpaused. Also indicate on the game screen that the game is paused.
 
 **Key Handling**
 
