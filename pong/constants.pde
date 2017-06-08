@@ -7,9 +7,9 @@ float PADDLE_VELOCITY = 10;
 
 // Background Color
 int bgColor = 0;
-
+float gravity = 0.0;
 // Ball parameters
-float ballX, ballY;
+float ballX=displayWidth/2, ballY=displayHeight/2;
 float ballVx, ballVy; // ballVx is always BALL_VELOCTY or -BALL_VELOCITY; ballVy varies.
 float ballRadius = 10;
 int ballColor = 255;

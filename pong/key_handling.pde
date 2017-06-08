@@ -17,3 +17,14 @@ void keyReleased() {
   if (key == PAUSE)         pause = false;
   if (key == START)         start = false;
 }
+void detectKeys()
+{
+  if (left_up)
+  leftPaddle-=PADDLE_VELOCITY;
+  if(left_down)
+  leftPaddle+=PADDLE_VELOCITY;
+  if (right_up)
+  rightPaddle-=PADDLE_VELOCITY;
+  if (right_down)
+  rightPaddle+=PADDLE_VELOCITY;
+}
